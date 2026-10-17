@@ -252,6 +252,8 @@ textarea {
   font-size: 1.05rem;
   line-height: 1.55;
   resize: vertical;
+  white-space: pre-wrap;
+  tab-size: 4;
   box-shadow: 4px 4px 0 var(--band);
 }
 
@@ -479,7 +481,8 @@ button:disabled {
   line-height: 1.75;
   max-height: 34rem;
   overflow-y: auto;
-  white-space: pre-line;
+  white-space: pre-wrap; /* keep the article's line breaks, blank lines, and spacing */
+  tab-size: 4;
   overflow-wrap: anywhere;
 }
 
@@ -641,25 +644,6 @@ tr.chosen td:first-child {
   margin-top: 1.5rem;
   font-size: 1.05rem;
   color: var(--ink-soft);
-}
-
-/* Footer */
-
-footer {
-  background: var(--band);
-  padding: 2rem var(--gutter);
-}
-
-footer p {
-  max-width: var(--prose);
-  margin: 0 auto;
-  font-family: var(--sans);
-  font-size: 0.92rem;
-  line-height: 1.5;
-}
-
-footer p + p {
-  margin-top: 0.5rem;
 }
 
 /* Medium screens: one column, decision first */

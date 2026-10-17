@@ -33,18 +33,6 @@ def create_app(router=None) -> Flask:
             return None
         return json.loads(path.read_text())
 
-    def credit() -> str:
-        path = MODELS / "deployed.json"
-        base = "KinNews, Niyongabo et al. 2020. Copyright in the articles stays with the newsrooms."
-        if not path.exists():
-            return base
-        deployed = json.loads(path.read_text())
-        if deployed.get("kind") == "transformer":
-            model = "The encoder is AfroXLMR-mini, Alabi et al. 2022."
-        else:
-            model = f"The deployed model is {deployed.get('system', 'the development selection')}, chosen on development macro-F1."
-        return f"KinNews, Niyongabo et al. 2020. {model} Copyright in the articles stays with the newsrooms."
-
     def sections() -> list[str]:
         load_kin(DATA / "kin_labels.json")
         return [KIN[label] for label in LABELS]
@@ -66,7 +54,6 @@ def create_app(router=None) -> Flask:
             result=None,
             error="",
             system=None,
-            credit=credit(),
             reads=reads(),
             sections=sections(),
         )
@@ -89,7 +76,6 @@ def create_app(router=None) -> Flask:
             result=result,
             error=error,
             system=system,
-            credit=credit(),
             reads=reads(),
             sections=sections(),
         )
