@@ -7,6 +7,8 @@ sdk: static
 app_file: index.html
 pinned: false
 license: mit
+models:
+- Gkea/ikinyamakuru
 short_description: Files Kinyarwanda news into one of 14 KinNews sections
 ---
 

@@ -3,6 +3,7 @@
 # Ikinyamakuru
 
 [![Live app](https://img.shields.io/badge/Live_app-Hugging_Face_Space-ffd21e?style=flat-square&logo=huggingface&logoColor=black)](https://huggingface.co/spaces/Gkea/Ikinyamakuru)
+[![Model](https://img.shields.io/badge/Model-ikinyamakuru-ffd21e?style=flat-square&logo=huggingface&logoColor=black)](https://huggingface.co/Gkea/ikinyamakuru)
 [![Open in Colab](https://img.shields.io/badge/Open_in-Colab-f9ab00?style=flat-square&logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/Keaane/Ikinyamakuru/blob/main/notebooks/colab_app.ipynb)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-3776ab?style=flat-square&logo=python&logoColor=white)](requirements.txt)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
@@ -50,6 +51,7 @@ The test file has a different mix of sections from the training file. Politics i
 ## Try it
 
 - The [Hugging Face Space](https://huggingface.co/spaces/Gkea/Ikinyamakuru) runs the deployed model in JavaScript and gives the same answers as the Python desk on all 4,227 development and test articles.
+- The model is on the Hugging Face Hub at [Gkea/ikinyamakuru](https://huggingface.co/Gkea/ikinyamakuru), with a model card, loading code, and a pickle-free copy of its weights.
 - [notebooks/colab_app.ipynb](notebooks/colab_app.ipynb) starts the Flask desk on Colab with a temporary public link.
 - The training notebooks, [01](notebooks/01_data_preparation.ipynb) to [05](notebooks/05_error_analysis.ipynb), prepare the data, train and evaluate the seven systems, and draw the figures. Each one opens in Colab.
 - `PYTHONPATH=src python app/app.py` runs the Flask desk on your own machine.

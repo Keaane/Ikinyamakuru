@@ -46,6 +46,7 @@
 | Mark the words that raised the section | The marks come from the linear model's own weights, so an editor can see why it chose. |
 | A free static Hugging Face Space with the model in JavaScript | Hugging Face charges for Docker and Gradio Spaces on CPU, while static Spaces are free and always on. The deployed linear model is 10 MB and ports exactly. |
 | Check the port against Python on every development and test article and on edge cases | The browser copy has to answer like the Flask desk. All 4,245 inputs get the same section, decision, top three, and marked words ([results/web_parity.json](results/web_parity.json)). |
+| Publish the deployed model on the Hugging Face Hub, with a pickle-free copy of its weights | Anyone can load the model without cloning the repository. A joblib file can run code when it loads, so the plain arrays offer a safer way to use it. |
 | A Colab notebook | It runs the Flask desk with a temporary public link and the whole pipeline on a free GPU, with nothing to install. |
 | Pin scikit-learn 1.9.1 and NumPy 2.x | The committed model was pickled with those versions. |
 | A design based on The Pudding's essays | Cream paper, serif reading text, and highlighter marks keep the attention on the article and on the words the model used. |
