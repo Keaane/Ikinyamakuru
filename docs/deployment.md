@@ -18,6 +18,16 @@ The port was checked on all 4,227 development and test articles and 18 edge case
 
 The deployed model is published at https://huggingface.co/Gkea/ikinyamakuru. The repository has the scikit-learn pipeline (`char_balanced.joblib`), the same model as plain arrays in `weights/` for use without pickle, `config.json` with the cutoff and the section names, and a model card with loading code and the per-section test scores.
 
+Load it with scikit-learn 1.9.1:
+
+```python
+import joblib
+from huggingface_hub import hf_hub_download
+
+model = joblib.load(hf_hub_download("Gkea/ikinyamakuru", "char_balanced.joblib"))
+print(model.predict(["Amavubi yatsinze Uganda ibitego bibiri ku busa mu mukino wa gicuti i Kigali"]))
+```
+
 ## Colab
 
 [notebooks/colab_app.ipynb](../notebooks/colab_app.ipynb) ([open in Colab](https://colab.research.google.com/github/Keaane/Ikinyamakuru/blob/main/notebooks/colab_app.ipynb)) has two parts. The first clones this repository, installs `app/requirements.txt`, starts `app/app.py`, and prints a temporary public link through a Cloudflare quick tunnel, which needs no account. The link works while the runtime runs. The second part links the five training notebooks, which also open in Colab; notebook 03 trains AfroXLMR-mini on a free T4 GPU.

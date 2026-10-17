@@ -22,7 +22,9 @@ The cutoff is 0.5743. On development it files 80.1 percent of articles and 86.3 
 
 ![Development and test macro-F1 for every system](../results/figures/macro_f1.png)
 
-## What the experiments show
+## Findings
+
+Over half of the official training file is repeated text. 9,384 of its 17,014 rows are exact duplicates, some copied 40 or 80 times, and 156 of the repeated articles carry more than one section label. Notebook 01 removes them before any training ([data/README.md](../data/README.md)).
 
 Character n-grams beat word n-grams, with development macro-F1 of 0.622 against 0.545. Kinyarwanda builds words from many prefixes and suffixes, and a character window can match the shared stem of two inflected forms that a whitespace split treats as different words.
 
