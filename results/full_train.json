@@ -1,0 +1,31 @@
+{
+  "name": "full",
+  "mode": "full",
+  "class_weight": false,
+  "lr": 2e-05,
+  "head_lr": 0.001,
+  "max_length": 128,
+  "best_epoch": 2,
+  "best_dev_macro_f1": 0.47692149359084757,
+  "history": [
+    {
+      "epoch": 0,
+      "loss": 1.468289147411193,
+      "dev_macro_f1": 0.38338660149267556,
+      "dev_accuracy": 0.6382699868938401
+    },
+    {
+      "epoch": 1,
+      "loss": 1.0401965653250267,
+      "dev_macro_f1": 0.4521547209091216,
+      "dev_accuracy": 0.6841415465268676
+    },
+    {
+      "epoch": 2,
+      "loss": 0.8777622261143231,
+      "dev_macro_f1": 0.47692149359084757,
+      "dev_accuracy": 0.6998689384010485
+    }
+  ],
+  "model": "Davlan/afro-xlmr-mini"
+}

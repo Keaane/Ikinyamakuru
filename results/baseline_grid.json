@@ -1,0 +1,15 @@
+{
+  "word": {
+    "C": 16.0,
+    "dev_macro_f1": 0.544803371859531
+  },
+  "char": {
+    "C": 16.0,
+    "dev_macro_f1": 0.6219208864775682
+  },
+  "char_balanced": {
+    "C": 16.0,
+    "class_weight": "balanced",
+    "dev_macro_f1": 0.691839306198835
+  }
+}

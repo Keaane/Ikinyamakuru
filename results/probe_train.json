@@ -1,0 +1,31 @@
+{
+  "name": "probe",
+  "mode": "probe",
+  "class_weight": false,
+  "lr": 0.001,
+  "head_lr": 0.001,
+  "max_length": 128,
+  "best_epoch": 2,
+  "best_dev_macro_f1": 0.23948103929403314,
+  "history": [
+    {
+      "epoch": 0,
+      "loss": 1.8685017740809835,
+      "dev_macro_f1": 0.2071768013060029,
+      "dev_accuracy": 0.46526867627785057
+    },
+    {
+      "epoch": 1,
+      "loss": 1.542533799102812,
+      "dev_macro_f1": 0.22949451766377352,
+      "dev_accuracy": 0.49017038007863695
+    },
+    {
+      "epoch": 2,
+      "loss": 1.433326333691746,
+      "dev_macro_f1": 0.23948103929403314,
+      "dev_accuracy": 0.508519003931848
+    }
+  ],
+  "model": "Davlan/afro-xlmr-mini"
+}
