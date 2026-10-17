@@ -24,6 +24,8 @@ Each encoder run saves the epoch with the highest development macro-F1. The line
 
 [notebooks/04_evaluation.ipynb](../notebooks/04_evaluation.ipynb) picks the system with the highest development macro-F1 and writes it to `models/deployed.json` before it reads the test split. Then it scores every system on the test split once.
 
+In the linear systems the saga solver stops at 220 iterations, and for `char_balanced` it stops there before converging. [notebooks/06_convergence.ipynb](../notebooks/06_convergence.ipynb) fits the three linear systems to convergence with L-BFGS over a wider C grid ({0.25, 1, 4, ..., 16384}) and applies the same development rules. It scores the test split a second time and does not change the deployed system; the decision to keep `char_balanced` was made after seeing both test scores ([results.md](results.md#a-second-test-scoring)).
+
 The cutoff comes from the selected system's development predictions. It is the top-section score that gives the highest accuracy among filed articles while still filing at least 80 percent of development (`inkuru.metrics.choose_threshold`). The scores are softmax outputs and are not calibrated probabilities.
 
 ## Own work and existing resources

@@ -39,7 +39,9 @@ The class-balanced character model, `char_balanced`, has the best development ma
 | full | 0.477 | 0.392 |
 | full_weighted | 0.488 | 0.435 |
 
-[docs/results.md](docs/results.md) has the full scores, the findings, and the error analysis.
+The saga solver behind the three linear systems stops at 220 iterations, before converging for `char_balanced`. A later experiment ([notebooks/06_convergence.ipynb](notebooks/06_convergence.ipynb)) fits them to convergence and scores the test split a second time: the same development rules then choose a model that scores higher on development and lower on test. `char_balanced` stays deployed, a decision made after seeing both test scores.
+
+[docs/results.md](docs/results.md) has the full scores, the findings, the error analysis, and [the second test scoring](docs/results.md#a-second-test-scoring).
 
 ## Getting started
 
