@@ -1,0 +1,72 @@
+{
+  "system": "char_balanced",
+  "threshold": 0.5743,
+  "labels": [
+    "politics",
+    "sport",
+    "economy",
+    "health",
+    "entertainment",
+    "history",
+    "technology",
+    "tourism",
+    "culture",
+    "fashion",
+    "religion",
+    "environment",
+    "education",
+    "relationship"
+  ],
+  "kin": {
+    "politics": "politiki",
+    "sport": "imikino",
+    "economy": "ubukungu",
+    "health": "ubuzima",
+    "entertainment": "imyidagaduro",
+    "history": "amateka",
+    "technology": "ikoranabuhanga",
+    "tourism": "ubukerarugendo",
+    "culture": "umuco",
+    "fashion": "imideri",
+    "religion": "iyobokamana",
+    "environment": "ibidukikije",
+    "education": "uburezi",
+    "relationship": "urukundo"
+  },
+  "blurb": {
+    "politics": "Government, elections, and public affairs.",
+    "sport": "Matches, clubs, and competitions.",
+    "economy": "Business, markets, and livelihoods.",
+    "health": "Hospitals, disease, and public health.",
+    "entertainment": "Music, film, and celebrity.",
+    "history": "The past, memory, and commemoration.",
+    "technology": "Devices, telecoms, and digital services.",
+    "tourism": "Travel, places, and hospitality.",
+    "culture": "Arts, language, and custom.",
+    "fashion": "Clothes, style, and beauty.",
+    "religion": "Faith, churches, and religious life.",
+    "environment": "Land, climate, and conservation.",
+    "education": "Schools, exams, and learning.",
+    "relationship": "Family, marriage, and personal life."
+  },
+  "ngram_range": [
+    2,
+    4
+  ],
+  "intercept": [
+    1.0977087085977593,
+    1.775899439055742,
+    0.5823548538992813,
+    -0.3985463443517612,
+    1.7964551234031334,
+    0.6165828097738548,
+    -0.2901973304414398,
+    -1.7896388561782406,
+    -1.0088731665009425,
+    1.3395307373983363,
+    0.38382911903604283,
+    -0.35751405076101317,
+    -4.074166735970765,
+    0.3265756930392255
+  ]
+}

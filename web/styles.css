@@ -1,0 +1,762 @@
+/* Ikinyamakuru desk. Cream paper, serif reading text, sans controls,
+   typewriter labels, and highlighter swipes behind the words that matter. */
+
+:root {
+  --paper: #fffff1;
+  --note: #f0f0d6;
+  --band: #e4e4a9;
+  --ink: #262626;
+  --ink-soft: #575757;
+  --ink-faint: #787463;
+  --rule: #d9d9c4;
+  --accent: #5b6c14;
+  --swipe-file: #ffaa4a;
+  --swipe-rival: #f493ff;
+  --swipe-held: #dbd4bc;
+  --drift: #ececd3;
+  --serif: "Source Serif 4", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  --prose: 650px;
+  --gutter: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--band);
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Highlighter swipe: a marker band across the lower half of the line. */
+.swipe,
+mark.support,
+mark.rival,
+.sections span,
+.answer h2 {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background-repeat: no-repeat;
+  background-size: 100% 55%;
+  background-position: 0 82%;
+}
+
+.swipe,
+.answer h2 {
+  background-size: 100% 42%;
+  background-position: 0 86%;
+}
+
+/* Header */
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1.25rem var(--gutter) 0;
+}
+
+.brand {
+  display: inline-block;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transform: rotate(-3deg);
+  padding: 0.1rem 0.5rem;
+  background: var(--band);
+}
+
+.brand:hover {
+  background: var(--swipe-file);
+}
+
+nav a {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+}
+
+nav a:hover {
+  border-bottom-width: 2px;
+}
+
+/* Hero */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 4.5rem var(--gutter) 3rem;
+  isolation: isolate;
+}
+
+.hero-lab {
+  padding-top: 3rem;
+  padding-bottom: 1.5rem;
+}
+
+.drift {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse at center, transparent 18%, #000 70%);
+  mask-image: radial-gradient(ellipse at center, transparent 18%, #000 70%);
+}
+
+.drift-row {
+  margin: 0;
+  white-space: nowrap;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.5rem, 4vw, 2.6rem);
+  color: var(--drift);
+  animation: drift calc(90s + var(--row) * 14s) linear infinite;
+  animation-direction: alternate;
+}
+
+.drift-row:nth-child(even) {
+  animation-direction: alternate-reverse;
+}
+
+.drift-row span {
+  margin-right: 1.4em;
+}
+
+@keyframes drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+h1 {
+  max-width: 14em;
+  margin: 0 auto;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 7vw, 4.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.swipe {
+  padding: 0 0.15em;
+  background-image: linear-gradient(var(--swipe-file), var(--swipe-file));
+}
+
+.lede {
+  max-width: 30em;
+  margin: 1.75rem auto 0;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+
+.lede strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.sections {
+  max-width: 44rem;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 0.6rem;
+  font-family: var(--sans);
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.sections span {
+  padding: 0 0.3rem;
+  background-image: linear-gradient(var(--swipe-held), var(--swipe-held));
+}
+
+/* Main column */
+
+.sheet {
+  max-width: var(--prose);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+main {
+  padding-bottom: 4rem;
+}
+
+.ask label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 13rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  resize: vertical;
+  box-shadow: 4px 4px 0 var(--band);
+}
+
+textarea::placeholder {
+  color: #9a978a;
+  font-style: italic;
+}
+
+.ask-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.hint {
+  margin: 0.2rem 0 0;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+button {
+  flex: none;
+  padding: 0.6rem 1.6rem;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 3px 3px 0 var(--swipe-file);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+/* Answer */
+
+/* The answer runs wider than the form: the decision on the left, the passage
+   and its marks on the right. Narrow screens stack the decision first. */
+.answer {
+  width: calc(100% - 2 * var(--gutter));
+  max-width: 1080px;
+  margin: 2.5rem auto 0;
+  padding: 2.25rem 2.25rem 2rem;
+  background: var(--note);
+  border-top: 3px solid var(--ink);
+  display: grid;
+  grid-template-columns: minmax(17rem, 1fr) minmax(0, 1.75fr);
+  grid-template-areas: "decision why";
+  column-gap: 2.5rem;
+  align-items: start;
+}
+
+.decision {
+  grid-area: decision;
+  padding-right: 2.5rem;
+  border-right: 1px solid var(--rule);
+}
+
+.answer[hidden] {
+  display: none;
+}
+
+.kicker {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.answer h2 {
+  display: inline;
+  margin: 0;
+  padding: 0 0.2em;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  background-image: linear-gradient(var(--swipe-file), var(--swipe-file));
+}
+
+.answer.held .kicker {
+  color: var(--ink-faint);
+}
+
+.answer.held h2 {
+  background-image: linear-gradient(var(--swipe-held), var(--swipe-held));
+}
+
+.answer .kicker + h2 {
+  margin-top: 0.4rem;
+}
+
+.en {
+  margin: 0.6rem 0 0;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: lowercase;
+}
+
+.blurb {
+  margin: 0.5rem 0 0;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+}
+
+.score {
+  margin: 1.5rem 0 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.tops {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.tops li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "kin pct"
+    "label label"
+    "meter meter";
+  column-gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.tops .kin {
+  grid-area: kin;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.tops .pct {
+  grid-area: pct;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.tops .label {
+  grid-area: label;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+
+.meter {
+  grid-area: meter;
+  display: block;
+  height: 6px;
+  margin-top: 0.4rem;
+  background: rgba(38, 38, 38, 0.08);
+}
+
+.meter > span {
+  display: block;
+  height: 100%;
+  width: calc(var(--p) * 1%);
+  background: var(--accent);
+}
+
+.tops li:not(:first-child) .meter > span {
+  background: var(--ink-faint);
+}
+
+.why {
+  grid-area: why;
+  min-width: 0;
+}
+
+.why h3 {
+  margin: 0 0 0.5rem;
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+}
+
+.why p {
+  margin: 0.5rem 0;
+}
+
+.key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.why .passage {
+  margin-top: 1rem;
+  padding: 1.1rem 1.25rem;
+  background: #fff;
+  border-left: 3px solid var(--band);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  max-height: 34rem;
+  overflow-y: auto;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+mark.support,
+mark.rival {
+  color: var(--ink);
+  padding: 0 0.15em;
+  background-color: transparent;
+}
+
+mark.support {
+  background-image: linear-gradient(var(--swipe-file), var(--swipe-file));
+}
+
+mark.rival {
+  font-style: italic;
+  background-image: linear-gradient(var(--swipe-rival), var(--swipe-rival));
+}
+
+.answer.error {
+  display: block;
+  max-width: calc(var(--prose) - 2 * var(--gutter));
+  padding: 1.25rem 1.5rem;
+  border-top-color: #b4471f;
+}
+
+.answer.error p {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 600;
+}
+
+/* Examples */
+
+.examples {
+  margin-top: 3.5rem;
+}
+
+.examples h2 {
+  margin: 0;
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+}
+
+.examples .note {
+  margin: 0.4rem 0 1rem;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.examples ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: example;
+  border-top: 1px solid var(--rule);
+}
+
+.examples li {
+  counter-increment: example;
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.examples li::before {
+  content: counter(example, decimal-leading-zero);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  line-height: 1.9;
+  color: var(--ink-faint);
+}
+
+.examples a {
+  font-size: 1.05rem;
+  line-height: 1.45;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  background-image: linear-gradient(var(--swipe-held), var(--swipe-held));
+  background-repeat: no-repeat;
+  background-size: 0% 62%;
+  background-position: 0 78%;
+  transition: background-size 0.25s ease;
+}
+
+.examples a:hover,
+.examples a:focus-visible {
+  background-size: 100% 62%;
+}
+
+/* Experiments table */
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 1rem;
+}
+
+thead th {
+  padding: 0 0.75rem 0.6rem;
+  border-bottom: 2px solid var(--ink);
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-align: right;
+  vertical-align: bottom;
+  color: var(--ink-faint);
+}
+
+thead th:first-child {
+  text-align: left;
+  padding-left: 0;
+}
+
+td {
+  padding: 0.7rem 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+}
+
+td:first-child {
+  padding-left: 0;
+  text-align: left;
+  font-family: var(--sans);
+  font-size: 1rem;
+}
+
+tr.chosen td {
+  background: var(--note);
+  font-weight: 500;
+}
+
+tr.chosen td:first-child {
+  font-weight: 700;
+  text-decoration-line: underline;
+  text-decoration-color: var(--swipe-file);
+  text-decoration-thickness: 0.55em;
+  text-underline-offset: -0.35em;
+  text-decoration-skip-ink: none;
+}
+
+.filing {
+  margin-top: 1.5rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+}
+
+/* Footer */
+
+footer {
+  background: var(--band);
+  padding: 2rem var(--gutter);
+}
+
+footer p {
+  max-width: var(--prose);
+  margin: 0 auto;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+footer p + p {
+  margin-top: 0.5rem;
+}
+
+/* Medium screens: one column, decision first */
+
+@media (max-width: 860px) {
+  .answer {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "decision"
+      "why";
+    row-gap: 2rem;
+  }
+
+  .decision {
+    padding-right: 0;
+    border-right: 0;
+  }
+}
+
+/* Small screens */
+
+@media (max-width: 640px) {
+  body {
+    font-size: 1.05rem;
+  }
+
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .ask-bar {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .answer {
+    padding: 1.5rem 1rem 1.25rem;
+  }
+
+  .why .passage {
+    padding: 1rem;
+  }
+
+  thead {
+    display: none;
+  }
+
+  table,
+  tbody,
+  tr,
+  td {
+    display: block;
+    width: 100%;
+  }
+
+  tr {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem 0;
+    border: 0;
+  }
+
+  td:first-child {
+    font-weight: 600;
+  }
+
+  td[data-label]::before {
+    content: attr(data-label);
+    font-family: var(--sans);
+    color: var(--ink-faint);
+  }
+
+  tr.chosen td,
+  tr.chosen td:first-child {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drift-row {
+    animation: none;
+  }
+
+  button,
+  .examples a {
+    transition: none;
+  }
+
+  button:hover {
+    transform: none;
+  }
+}

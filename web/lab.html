@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Experiments · Ikinyamakuru</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" />
+    <link rel="stylesheet" href="styles.css?v=10" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="brand" href="./">Ikinyamakuru</a>
+      <nav>
+        <a href="./">Desk</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-lab">
+        <h1><span class="swipe">Experiments</span></h1>
+        
+        <p class="lede">Development macro-F1 chose <strong>char_balanced</strong>, and the test column was scored after that choice. The desk files a piece when its top score is at least 57.4%.</p>
+        
+      </section>
+
+      
+      <div class="sheet">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>System</th>
+                <th>Dev macro-F1</th>
+                <th>Test accuracy</th>
+                <th>Test macro-F1</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr >
+                <td>majority</td>
+                <td data-label="Dev macro-F1">0.027</td>
+                <td data-label="Test accuracy">0.091</td>
+                <td data-label="Test macro-F1">0.012</td>
+              </tr>
+              
+              <tr >
+                <td>word</td>
+                <td data-label="Dev macro-F1">0.545</td>
+                <td data-label="Test accuracy">0.690</td>
+                <td data-label="Test macro-F1">0.428</td>
+              </tr>
+              
+              <tr >
+                <td>char</td>
+                <td data-label="Dev macro-F1">0.622</td>
+                <td data-label="Test accuracy">0.697</td>
+                <td data-label="Test macro-F1">0.456</td>
+              </tr>
+              
+              <tr class="chosen">
+                <td>char_balanced</td>
+                <td data-label="Dev macro-F1">0.692</td>
+                <td data-label="Test accuracy">0.734</td>
+                <td data-label="Test macro-F1">0.583</td>
+              </tr>
+              
+              <tr >
+                <td>probe</td>
+                <td data-label="Dev macro-F1">0.239</td>
+                <td data-label="Test accuracy">0.520</td>
+                <td data-label="Test macro-F1">0.244</td>
+              </tr>
+              
+              <tr >
+                <td>full</td>
+                <td data-label="Dev macro-F1">0.477</td>
+                <td data-label="Test accuracy">0.665</td>
+                <td data-label="Test macro-F1">0.392</td>
+              </tr>
+              
+              <tr >
+                <td>full_weighted</td>
+                <td data-label="Dev macro-F1">0.488</td>
+                <td data-label="Test accuracy">0.674</td>
+                <td data-label="Test macro-F1">0.435</td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+        
+        <p class="filing">On the test set the desk files 73.8% of articles and is right on 84.7% of those.</p>
+        
+      </div>
+      
+    </main>
+  </body>
+</html>

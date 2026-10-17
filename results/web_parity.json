@@ -1,0 +1,12 @@
+{
+  "checked": 4245,
+  "articles": 4227,
+  "edge_cases": 18,
+  "same_section": 4245,
+  "same_filing_decision": 4245,
+  "same_top3": 4245,
+  "same_marked_words": 4245,
+  "same_empty_input_error": 4245,
+  "max_probability_difference": 9.992007221626409e-16,
+  "mismatches": []
+}
