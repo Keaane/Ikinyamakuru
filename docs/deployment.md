@@ -2,7 +2,7 @@
 
 [← README](../README.md)
 
-The live app is a free static Space at https://huggingface.co/spaces/Gkea/Ikinyamakuru. Paste a Kinyarwanda article and press File. The desk proposes one of the 14 sections, shows the next two, and marks the words that raised the section. When the top score is under 0.5743 it leaves the piece for an editor.
+The model is deployed on Hugging Face in two places. The desk runs on a free static Space at https://huggingface.co/spaces/Gkea/Ikinyamakuru, and the model is published on the Hugging Face Hub at https://huggingface.co/Gkea/ikinyamakuru (see [Model on the Hub](#model-on-the-hub)). Paste a Kinyarwanda article and press File. The desk proposes one of the 14 sections, shows the next two, and marks the words that raised the section. When the top score is under 0.5743 it leaves the piece for an editor.
 
 ## How the browser app works
 

@@ -10,12 +10,12 @@
 
 Ikinyamakuru files a Kinyarwanda news article under one of 14 sections and leaves it for an editor when its score is low. The name is Kinyarwanda for a newspaper.
 
-[Overview](#overview) • [Findings](#findings) • [Try it](#try-it) • [Getting started](#getting-started) • [Documentation](#documentation)
+[Overview](#overview) • [Findings](#findings) • [Try it](#try-it) • [Deployment](#deployment) • [Getting started](#getting-started) • [Documentation](#documentation)
 
 </div>
 
 > [!TIP]
-> The [live app](https://huggingface.co/spaces/Gkea/Ikinyamakuru) runs the model in your browser. Paste an article or pick one of the examples.
+> The model is deployed on Hugging Face. The [live app](https://huggingface.co/spaces/Gkea/Ikinyamakuru) runs it in your browser, and the [model](https://huggingface.co/Gkea/ikinyamakuru) is on the Hugging Face Hub. Paste an article or pick one of the examples.
 
 ## Overview
 
@@ -25,7 +25,7 @@ This is a summative project for Machine Learning Techniques I at the African Lea
 | --- | --- | ---: | --- |
 | [KinNews](https://github.com/Andrews2017/KINNEWS-and-KIRNEWS-Corpus) (Niyongabo et al., 2020) | Kinyarwanda, Rwanda | 21,268 raw, 11,091 after removing duplicates | train 6,864, development 763, test 3,464 |
 
-The project compares seven systems: a majority baseline, logistic regression on word and on character TF-IDF features (with and without class balancing), and AfroXLMR-mini as a frozen probe, a full fine-tune, and a class-weighted fine-tune. Every choice is made on development macro-F1, and the official test split is scored once.
+The project compares seven systems: a majority baseline, logistic regression on word and on character TF-IDF features (with and without class balancing), and AfroXLMR-mini as a frozen probe, a full fine-tune, and a class-weighted fine-tune. Every choice is made on development macro-F1, and the official test split is scored once. The selected model is deployed on Hugging Face, as a desk on a Space and as a model on the Hub.
 
 ## Findings
 
@@ -57,6 +57,26 @@ The test file has a different mix of sections from the training file. Politics i
 - `PYTHONPATH=src python app/app.py` runs the Flask desk on your own machine.
 - Demo video: to be added.
 
+## Deployment
+
+| Where | Link | What it is |
+| --- | --- | --- |
+| Hugging Face Space | [Gkea/Ikinyamakuru](https://huggingface.co/spaces/Gkea/Ikinyamakuru) | The desk, running the model in your browser |
+| Hugging Face Hub | [Gkea/ikinyamakuru](https://huggingface.co/Gkea/ikinyamakuru) | The model with its card, the cutoff, and pickle-free weights |
+| Colab | [colab_app.ipynb](https://colab.research.google.com/github/Keaane/Ikinyamakuru/blob/main/notebooks/colab_app.ipynb) | The Flask desk with a temporary public link |
+
+Load the model from the Hub with scikit-learn 1.9.1:
+
+```python
+import joblib
+from huggingface_hub import hf_hub_download
+
+model = joblib.load(hf_hub_download("Gkea/ikinyamakuru", "char_balanced.joblib"))
+print(model.predict(["Amavubi yatsinze Uganda ibitego bibiri ku busa mu mukino wa gicuti i Kigali"]))
+```
+
+[docs/deployment.md](docs/deployment.md) explains how the Space runs the model.
+
 ## Getting started
 
 You need Python 3.12.
@@ -78,7 +98,7 @@ Ikinyamakuru/
 ├── src/inkuru/   shared code for the notebooks and the desk: paths, labels, data, metrics, prediction
 ├── app/          the Flask desk
 ├── web/          the browser app on the Hugging Face Space
-├── models/       the deployed model and its cutoff
+├── models/       the deployed model and its cutoff (also on the Hugging Face Hub)
 ├── results/      metrics, per-article predictions, error notes, and figures
 ├── data/         prepared splits and the data card
 ├── docs/         the full write-up
@@ -92,7 +112,7 @@ Ikinyamakuru/
 | [Data](data/README.md) | source, download, preparation, split sizes, known limits, licences |
 | [Methods](docs/methods.md) | the seven systems, training settings, selection, and the refusal cutoff |
 | [Results](docs/results.md) | full scores, figures, findings, and error analysis |
-| [Deployment](docs/deployment.md) | the browser app and its parity check, Colab, and the desk on your machine |
+| [Deployment](docs/deployment.md) | the Hugging Face Space and Hub, the parity check, Colab, and the desk on your machine |
 | [Reproduce](docs/reproduce.md) | the five training notebooks and the repository layout |
 | [References](docs/references.md) | papers, data, models, and tools |
 | [Design decisions](DECISIONS.md) | each choice and the reason for it |

@@ -30,6 +30,6 @@ The cutoff comes from the selected system's development predictions. It is the t
 
 The KinNews articles and labels, the pretrained AfroXLMR-mini weights, and the libraries (scikit-learn, PyTorch, Hugging Face Transformers, Flask, and Matplotlib) are used as published.
 
-The project implements the data preparation (label check, deduplication, leakage filter, and development split), the seven training and selection runs, the refusal cutoff, the evaluation and error analysis, the Flask desk with its word marking, the JavaScript port of the deployed model with its parity check, and the Colab notebook.
+The project implements the data preparation (label check, deduplication, leakage filter, and development split), the seven training and selection runs, the refusal cutoff, the evaluation and error analysis, the Flask desk with its word marking, the JavaScript port of the deployed model with its parity check, the Hugging Face Space and model repository, and the Colab notebook.
 
 Sources are in [references.md](references.md), and each design choice is in [DECISIONS.md](../DECISIONS.md).
