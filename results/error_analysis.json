@@ -1,0 +1,257 @@
+{
+  "winner": "char_balanced",
+  "threshold": 0.5743,
+  "top_confusions": [
+    {
+      "gold": "health",
+      "pred": "politics",
+      "n": 50
+    },
+    {
+      "gold": "entertainment",
+      "pred": "politics",
+      "n": 47
+    },
+    {
+      "gold": "entertainment",
+      "pred": "health",
+      "n": 40
+    },
+    {
+      "gold": "culture",
+      "pred": "politics",
+      "n": 39
+    },
+    {
+      "gold": "education",
+      "pred": "relationship",
+      "n": 38
+    },
+    {
+      "gold": "religion",
+      "pred": "politics",
+      "n": 35
+    },
+    {
+      "gold": "fashion",
+      "pred": "entertainment",
+      "n": 34
+    },
+    {
+      "gold": "relationship",
+      "pred": "health",
+      "n": 31
+    },
+    {
+      "gold": "sport",
+      "pred": "politics",
+      "n": 26
+    },
+    {
+      "gold": "tourism",
+      "pred": "economy",
+      "n": 25
+    },
+    {
+      "gold": "entertainment",
+      "pred": "fashion",
+      "n": 23
+    },
+    {
+      "gold": "health",
+      "pred": "relationship",
+      "n": 19
+    }
+  ],
+  "confident_errors": [
+    {
+      "title": "Miss Supranational 2016:Nyampinga Akiwacu   yatangaje ko  yishimiye kuba yarahesheje ishema igihugu cye",
+      "gold": "entertainment",
+      "pred": "fashion",
+      "confidence": 1.0,
+      "filed": true,
+      "note": "error"
+    },
+    {
+      "title": "Uwase wahagarariye u Rwanda muri Miss Supranational 2018 yitabiriye irindi rushanwa rikomeye",
+      "gold": "entertainment",
+      "pred": "fashion",
+      "confidence": 1.0,
+      "filed": true,
+      "note": "error"
+    },
+    {
+      "title": "Umwiraburakazi wo muri Afurika y’Epfo niwe wegukanye ikamba rya Miss Universe (Amafoto)",
+      "gold": "entertainment",
+      "pred": "fashion",
+      "confidence": 1.0,
+      "filed": true,
+      "note": "error"
+    },
+    {
+      "title": "Miss Uwase  yiyerekanye mu cyiciro gikomeye cyo kwerekana imiterere y’umubiri [ REBA VIDEO]",
+      "gold": "entertainment",
+      "pred": "fashion",
+      "confidence": 0.9999,
+      "filed": true,
+      "note": "error"
+    },
+    {
+      "title": "Shekinah Worship Team Masoro yamuritse album mu gitaramo cyamaze amasaha 12",
+      "gold": "entertainment",
+      "pred": "religion",
+      "confidence": 0.9984,
+      "filed": true,
+      "note": "error"
+    },
+    {
+      "title": "Umutoza Mashami Vincent yaretse umuryango abakinnyi 5 mu Mavubi yitegura guhangana na Côte d’Ivoire",
+      "gold": "entertainment",
+      "pred": "sport",
+      "confidence": 0.9984,
+      "filed": true,
+      "note": "error"
+    },
+    {
+      "title": "Intego za APR Fc ni ukurenga aho Rayon Sports yageze-Mugiraneza Migy",
+      "gold": "entertainment",
+      "pred": "sport",
+      "confidence": 0.9972,
+      "filed": true,
+      "note": "error"
+    },
+    {
+      "title": "Icyo abanyamadini bavuze kuri Gitwaza wiyise ‘umuhanuzi uruta abandi’",
+      "gold": "culture",
+      "pred": "religion",
+      "confidence": 0.9971,
+      "filed": true,
+      "note": "error"
+    }
+  ],
+  "correct_examples": [
+    {
+      "title": "Menya zimwe mu nyito zihariye z’inka n’amata mu muco wa Kinyarwanda",
+      "gold": "culture",
+      "pred": "culture",
+      "confidence": 1.0,
+      "filed": true,
+      "note": "correct"
+    },
+    {
+      "title": "Abanyarwanda bacanye umucyo muri Tokyo Africa Collections (Amafoto)",
+      "gold": "fashion",
+      "pred": "fashion",
+      "confidence": 1.0,
+      "filed": true,
+      "note": "correct"
+    },
+    {
+      "title": "Icyo REMA isaba abaturage mu bihe by’imvura n’ibiza",
+      "gold": "environment",
+      "pred": "environment",
+      "confidence": 0.9999,
+      "filed": true,
+      "note": "correct"
+    },
+    {
+      "title": "Imideli ikoranywe ubuhanga n’intambuko zinogeye ijisho mu byaranze Kigali Fashion Week 2019 (Amafoto)",
+      "gold": "fashion",
+      "pred": "fashion",
+      "confidence": 0.9998,
+      "filed": true,
+      "note": "correct"
+    },
+    {
+      "title": "Indirimbo yanjye na Meddy irahari ariko ntabwo irarangira-Diamond Platnumz",
+      "gold": "entertainment",
+      "pred": "entertainment",
+      "confidence": 0.9997,
+      "filed": true,
+      "note": "correct"
+    },
+    {
+      "title": "Itariki yo guhabwa igikombe ku ikipe ya Rayon Sport yamenyekanye",
+      "gold": "sport",
+      "pred": "sport",
+      "confidence": 0.9996,
+      "filed": true,
+      "note": "correct"
+    }
+  ],
+  "refused_example": {
+    "title": "Umuyapani yabaye umusare (navigateur) wa mbere ufite ubumuga bwo kutabona wambutse inyanja ya Pasifika",
+    "gold": "health",
+    "pred": "entertainment",
+    "confidence": 0.1677,
+    "filed": false,
+    "note": "refused"
+  },
+  "buttons": [
+    {
+      "title": "Menya zimwe mu nyito zihariye z’inka n’amata mu muco wa Kinyarwanda",
+      "gold": "culture",
+      "pred": "culture",
+      "confidence": 1.0,
+      "filed": true,
+      "note": "correct"
+    },
+    {
+      "title": "Abanyarwanda bacanye umucyo muri Tokyo Africa Collections (Amafoto)",
+      "gold": "fashion",
+      "pred": "fashion",
+      "confidence": 1.0,
+      "filed": true,
+      "note": "correct"
+    },
+    {
+      "title": "Icyo REMA isaba abaturage mu bihe by’imvura n’ibiza",
+      "gold": "environment",
+      "pred": "environment",
+      "confidence": 0.9999,
+      "filed": true,
+      "note": "correct"
+    },
+    {
+      "title": "Indirimbo yanjye na Meddy irahari ariko ntabwo irarangira-Diamond Platnumz",
+      "gold": "entertainment",
+      "pred": "entertainment",
+      "confidence": 0.9997,
+      "filed": true,
+      "note": "correct"
+    },
+    {
+      "title": "Miss Supranational 2016:Nyampinga Akiwacu   yatangaje ko  yishimiye kuba yarahesheje ishema igihugu cye",
+      "gold": "entertainment",
+      "pred": "fashion",
+      "confidence": 1.0,
+      "filed": true,
+      "note": "confident error"
+    },
+    {
+      "title": "Uwase wahagarariye u Rwanda muri Miss Supranational 2018 yitabiriye irindi rushanwa rikomeye",
+      "gold": "entertainment",
+      "pred": "fashion",
+      "confidence": 1.0,
+      "filed": true,
+      "note": "confident error"
+    },
+    {
+      "title": "Umuyapani yabaye umusare (navigateur) wa mbere ufite ubumuga bwo kutabona wambutse inyanja ya Pasifika",
+      "gold": "health",
+      "pred": "entertainment",
+      "confidence": 0.1677,
+      "filed": false,
+      "note": "refused"
+    },
+    {
+      "title": "#KWIBUKA 26  : Tariki 9 Mata 1994  Abasirikare ba Leta ya Habyarimana batwitse Abatutsi  mu Nyakabanda",
+      "gold": "history",
+      "pred": "history",
+      "confidence": 0.8927,
+      "filed": true,
+      "note": "rare section"
+    }
+  ],
+  "rare_section": "history"
+}
