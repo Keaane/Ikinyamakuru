@@ -1,0 +1,7 @@
+# Everything: the desk, the notebooks that prepare the data and train and evaluate the models, and the figures.
+# transformers matches the version recorded in the saved checkpoints' config.json.
+-r app/requirements.txt
+torch>=2.2
+transformers==5.19.0
+matplotlib>=3.8
+notebook>=7

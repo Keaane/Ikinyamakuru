@@ -1,0 +1,89 @@
+{
+  "dataset": "KinNews raw",
+  "source": "Niyongabo et al., 2020. Official train/test kept. Dev is 10% of train, seed 42, stratified.",
+  "dropped": {
+    "duplicate_train_file": 9384,
+    "duplicate_test_file": 790,
+    "overlaps_test": 3
+  },
+  "kin_labels": {
+    "politics": "politiki",
+    "sport": "imikino",
+    "economy": "ubukungu",
+    "health": "ubuzima",
+    "entertainment": "imyidagaduro",
+    "history": "amateka",
+    "technology": "ikoranabuhanga",
+    "tourism": "ubukerarugendo",
+    "culture": "umuco",
+    "fashion": "imideri",
+    "religion": "iyobokamana",
+    "environment": "ibidukikije",
+    "education": "uburezi",
+    "relationship": "urukundo"
+  },
+  "train": {
+    "n": 6864,
+    "counts": {
+      "politics": 1628,
+      "sport": 878,
+      "economy": 1000,
+      "health": 978,
+      "entertainment": 994,
+      "history": 196,
+      "technology": 136,
+      "tourism": 31,
+      "culture": 69,
+      "fashion": 34,
+      "religion": 401,
+      "environment": 34,
+      "education": 104,
+      "relationship": 381
+    },
+    "words_mean": 347.48426573426576,
+    "words_median": 292.0
+  },
+  "dev": {
+    "n": 763,
+    "counts": {
+      "politics": 181,
+      "sport": 98,
+      "economy": 111,
+      "health": 109,
+      "entertainment": 110,
+      "history": 22,
+      "technology": 15,
+      "tourism": 3,
+      "culture": 8,
+      "fashion": 4,
+      "religion": 44,
+      "environment": 4,
+      "education": 12,
+      "relationship": 42
+    },
+    "words_mean": 336.4967234600262,
+    "words_median": 291.0
+  },
+  "test": {
+    "n": 3464,
+    "counts": {
+      "politics": 315,
+      "sport": 744,
+      "economy": 174,
+      "health": 272,
+      "entertainment": 774,
+      "history": 11,
+      "technology": 103,
+      "tourism": 76,
+      "culture": 138,
+      "fashion": 91,
+      "religion": 256,
+      "environment": 100,
+      "education": 70,
+      "relationship": 340
+    },
+    "words_mean": 353.89780600461893,
+    "words_median": 290.0
+  },
+  "non_ascii_share_train": 0.9982517482517482
+}

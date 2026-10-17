@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.cache/
+# KinNews CSV drop: download it, see data/README.md.
+data/source/
+# AfroXLMR-mini checkpoints, about 465 MB each. The deployed model is in models/baselines/.
+models/runs/
+# Only the deployed linear model is committed; notebook 02 rebuilds the others.
+models/baselines/*.joblib
+!models/baselines/char_balanced.joblib
