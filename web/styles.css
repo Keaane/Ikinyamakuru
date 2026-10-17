@@ -317,6 +317,7 @@ button:disabled {
   grid-template-areas: "decision why";
   column-gap: 2.5rem;
   align-items: start;
+  scroll-margin-top: 1.5rem;
 }
 
 .decision {

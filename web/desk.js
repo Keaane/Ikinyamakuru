@@ -65,7 +65,10 @@
     section.className = `answer ${className}`;
     section.innerHTML = html;
     form.closest(".sheet").after(section); // the answer is wider than the form's column
-    section.scrollIntoView({ block: "nearest" });
+    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.requestAnimationFrame(() => {
+      section.scrollIntoView({ block: "start", behavior: still ? "auto" : "smooth" });
+    });
   }
 
   form.addEventListener("submit", async (event) => {
