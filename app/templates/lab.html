@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Experiments · Ikinyamakuru</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v=10" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="brand" href="{{ url_for('home') }}">Ikinyamakuru</a>
+      <nav>
+        <a href="{{ url_for('home') }}">Desk</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-lab">
+        <h1><span class="swipe">Experiments</span></h1>
+        {% if not metrics %}
+        <p class="lede">No results yet. Train the models, then reload this page.</p>
+        {% else %}
+        <p class="lede">Development macro-F1 chose <strong>{{ metrics.selected }}</strong>, and the test column was scored after that choice. The desk files a piece when its top score is at least {{ "%.1f"|format(metrics.threshold.threshold * 100) }}%.</p>
+        {% endif %}
+      </section>
+
+      {% if metrics %}
+      <div class="sheet">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>System</th>
+                <th>Dev macro-F1</th>
+                <th>Test accuracy</th>
+                <th>Test macro-F1</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for name, row in metrics.systems.items() %}
+              <tr {% if name == metrics.selected %}class="chosen"{% endif %}>
+                <td>{{ name }}</td>
+                <td data-label="Dev macro-F1">{{ "%.3f"|format(row.dev.macro_f1) }}</td>
+                <td data-label="Test accuracy">{{ "%.3f"|format(row.test.accuracy) }}</td>
+                <td data-label="Test macro-F1">{{ "%.3f"|format(row.test.macro_f1) }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% if metrics.systems[metrics.selected].filing %}
+        <p class="filing">On the test set the desk files {{ "%.1f"|format(metrics.systems[metrics.selected].filing.coverage * 100) }}% of articles and is right on {{ "%.1f"|format(metrics.systems[metrics.selected].filing.accuracy_kept * 100) }}% of those.</p>
+        {% endif %}
+      </div>
+      {% endif %}
+    </main>
+  </body>
+</html>

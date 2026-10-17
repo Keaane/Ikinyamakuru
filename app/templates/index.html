@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ikinyamakuru</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v=10" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="brand" href="{{ url_for('home') }}">Ikinyamakuru</a>
+      <nav>
+        <a href="{{ url_for('lab') }}">Experiments</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="drift" aria-hidden="true">
+          {% for row in range(5) %}
+          <p class="drift-row" style="--row: {{ row }}">{% for _ in range(2) %}{% for name in sections[row * 3:] + sections[:row * 3] %}<span>{{ name }}</span>{% endfor %}{% endfor %}</p>
+          {% endfor %}
+        </div>
+        <h1><span class="swipe">File a Kinyarwanda article.</span></h1>
+        <p class="lede">Paste a headline or a whole story. The desk proposes one of 14 sections, and when its score is low it leaves the piece for an editor.</p>
+        <p class="sections" lang="rw">
+          {% for name in sections %}<span>{{ name }}</span>{% endfor %}
+        </p>
+      </section>
+
+      <div class="sheet">
+        <form class="ask" method="post" action="{{ url_for('classify') }}">
+          <label for="text">Article</label>
+          <textarea id="text" name="text" rows="9" maxlength="6000" lang="rw" spellcheck="false" placeholder="Paste the headline or the story">{{ text }}</textarea>
+          <div class="ask-bar">
+            <p class="hint">{{ reads }}</p>
+            <button type="submit">File</button>
+          </div>
+        </form>
+      </div>
+
+      {% if error %}
+      <section class="answer error">
+        <p>{{ error }}</p>
+      </section>
+      {% elif result %}
+      <section class="answer {{ 'filed' if result.filed else 'held' }}">
+        <div class="decision">
+          {% if result.filed %}
+          <p class="kicker">Filed</p>
+          <h2 lang="rw">{{ result.kin }}</h2>
+          <p class="en">{{ result.label }}</p>
+          <p class="blurb">{{ result.blurb }}</p>
+          {% else %}
+          <p class="kicker">Left for an editor</p>
+          <h2>Not filed</h2>
+          <p class="blurb">The top guess is <span lang="rw">{{ result.kin }}</span> ({{ result.label }}) at {{ "%.1f"|format(result.confidence * 100) }}%, under the {{ "%.1f"|format(result.threshold * 100) }}% line.</p>
+          {% endif %}
+          <p class="score">{{ "%.1f"|format(result.confidence * 100) }}% on the top section.</p>
+          <ol class="tops">
+            {% for item in result.top %}
+            <li>
+              <span class="kin" lang="rw">{{ item.kin }}</span>
+              <span class="pct">{{ "%.1f"|format(item.p * 100) }}%</span>
+              <span class="label">{{ item.label }}</span>
+              <span class="meter" style="--p: {{ '%.1f'|format(item.p * 100) }}"><span></span></span>
+            </li>
+            {% endfor %}
+          </ol>
+        </div>
+        {% if result.reason %}
+        <div class="why">
+          <h3>Why this section</h3>
+          {% if result.reason.marked %}
+          <p class="key">
+            <span><mark class="support">{{ result.kin }}</mark> raised this section</span>
+            {% if result.reason.rival_kin %}
+            <span><mark class="rival">{{ result.reason.rival_kin }}</mark> raised the next guess</span>
+            {% endif %}
+          </p>
+          {% else %}
+          <p>{{ result.reason.summary }}</p>
+          {% endif %}
+          <p class="passage" lang="rw">{% for part in result.reason.parts %}{% if part.role == "support" %}<mark class="support">{{ part.text }}</mark>{% elif part.role == "rival" %}<mark class="rival">{{ part.text }}</mark>{% else %}{{ part.text }}{% endif %}{% endfor %}</p>
+        </div>
+        {% endif %}
+      </section>
+      {% endif %}
+
+      {% if examples %}
+      <div class="sheet">
+        <section class="examples">
+          <h2>Try an article</h2>
+          <p class="note">A headline fills the box with its article. Press File yourself.</p>
+          <ol>
+            {% for example in examples %}
+            <li><a href="{{ url_for('home', text=example.text) }}" data-text="{{ example.text }}" lang="rw">{{ example.title }}</a></li>
+            {% endfor %}
+          </ol>
+        </section>
+      </div>
+      {% endif %}
+    </main>
+
+    <footer>
+      <p>{{ credit }}</p>
+    </footer>
+    <script>
+      document.querySelectorAll(".examples a").forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          var box = document.getElementById("text");
+          box.value = link.dataset.text || link.textContent.trim();
+          var answer = document.querySelector(".answer");
+          if (answer) answer.hidden = true;
+          var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          box.focus({ preventScroll: true });
+          box.setSelectionRange(box.value.length, box.value.length);
+          box.scrollIntoView({ block: "center", behavior: reduce ? "auto" : "smooth" });
+        });
+      });
+    </script>
+  </body>
+</html>
