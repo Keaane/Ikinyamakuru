@@ -67,6 +67,10 @@ The 14 sections were merged from the publishers' own categories, so some stories
 
 Tourism, fashion, and environment have 31 to 34 training articles and 3 or 4 development articles, so their development scores move when one article changes. History has 11 test articles.
 
+Deduplication removes exact repeats only, so near-repeats remain. 15 test articles open with the same 300 characters of body text as a training article (3 of them under a different label), 20 share a title of at least 15 characters with a training article (5 under a different label), and 30 openings repeat inside the test file. That is under 1 percent of the test split, so the scores barely move, but those articles are not fully unseen. [notebooks/05_error_analysis.ipynb](../notebooks/05_error_analysis.ipynb) counts them.
+
+Some publishers' pages were scraped behind Cloudflare's email protection, which replaces addresses with the text `[email protected]` (with a non-breaking space). It appears in 60 test articles and 1 training article, one sign that part of the test file comes from different sources or a different scrape than the training file.
+
 All the articles are edited news, which is cleaner than social media posts or transcribed speech.
 
 ## Licences

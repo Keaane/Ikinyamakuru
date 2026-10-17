@@ -8,11 +8,11 @@ The model is deployed on Hugging Face in two places. The desk runs on a free sta
 
 Hugging Face charges for Docker and Gradio Spaces on CPU, while static Spaces are free and always on. The deployed model is a linear model over character n-grams with 10 MB of weights, so it runs in the browser in plain JavaScript, and the text a user pastes stays on their machine.
 
-The vocabulary, IDF weights, float64 coefficients, and intercepts of `models/baselines/char_balanced.joblib` are exported to `web/model/`. [web/ngram.js](../web/ngram.js) re-implements scikit-learn's `char_wb` TF-IDF (2 to 4 grams, sublinear tf, l2 norm), the multinomial logistic regression, and the word marking from `src/inkuru/predict.py`. Where Python and JavaScript treat whitespace, lowercasing, or word characters differently, the file spells out Python's rules.
+The vocabulary, IDF weights, float64 coefficients, and intercepts of `models/baselines/char_balanced.joblib` are exported to `web/model/` by [scripts/export_web.py](../scripts/export_web.py). [web/ngram.js](../web/ngram.js) re-implements scikit-learn's `char_wb` TF-IDF (2 to 4 grams, sublinear tf, l2 norm), the multinomial logistic regression, and the word marking from `src/inkuru/predict.py`. Where Python and JavaScript treat whitespace, lowercasing, or word characters differently, the file spells out Python's rules.
 
-The port was checked on all 4,227 development and test articles and 18 edge cases against the Flask desk's own `Router.route`. The edge cases cover Python-only whitespace, the Greek final sigma, combining accents, emoji, and empty input. All 4,245 inputs get the same section, filing decision, top three, marked words, and empty-input error, and the largest probability difference is 1e-15 ([results/web_parity.json](../results/web_parity.json)).
+[scripts/web_parity.py](../scripts/web_parity.py) checks the port on all 4,227 development and test articles and 18 edge cases against the Flask desk's own `Router.route`. The edge cases cover Python-only whitespace, the Greek final sigma, combining accents, emoji, and empty input. All 4,245 inputs get the same section, filing decision, top three, marked words, and empty-input error, and the largest probability difference is 1e-15 ([results/web_parity.json](../results/web_parity.json)).
 
-`web/index.html` and `web/lab.html` are rendered from the Flask templates, so the Space and the local desk look the same, and [web/desk.js](../web/desk.js) draws the same answer block as the template. The examples fill the box with a full article without filing it, and the editor presses File.
+The same export script renders `web/index.html` and `web/lab.html` from the Flask templates, so the Space and the local desk look the same, and [web/desk.js](../web/desk.js) draws the same answer block as the template. The examples fill the box with a full article without filing it, and the editor presses File.
 
 ## Model on the Hub
 
