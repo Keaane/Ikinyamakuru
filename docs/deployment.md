@@ -30,7 +30,7 @@ print(model.predict(["Amavubi yatsinze Uganda ibitego bibiri ku busa mu mukino w
 
 ## Colab
 
-[notebooks/colab_app.ipynb](../notebooks/colab_app.ipynb) ([open in Colab](https://colab.research.google.com/github/Keaane/Ikinyamakuru/blob/main/notebooks/colab_app.ipynb)) has two parts. The first clones this repository, installs `app/requirements.txt`, starts `app/app.py`, and prints a temporary public link through a Cloudflare quick tunnel, which needs no account. The link works while the runtime runs. The second part links the five training notebooks, which also open in Colab; notebook 03 trains AfroXLMR-mini on a free T4 GPU.
+[notebooks/colab_app.ipynb](../notebooks/colab_app.ipynb) ([open in Colab](https://colab.research.google.com/github/Keaane/Ikinyamakuru/blob/main/notebooks/colab_app.ipynb)) has two parts. The first clones this repository, installs `app/requirements.txt`, starts `app/app.py`, and prints a temporary public link through a Cloudflare quick tunnel, which needs no account. The link works while the runtime runs. The second part links the six training notebooks, which also open in Colab; notebook 03 trains AfroXLMR-mini on a free T4 GPU.
 
 ## Run the desk on your machine
 

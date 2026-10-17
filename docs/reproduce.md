@@ -2,7 +2,7 @@
 
 [← README](../README.md)
 
-The training happens in five notebooks. Run them in order from Jupyter or VS Code with `requirements.txt` installed, or open each one in Colab with its button; each notebook's first cell sets up either environment.
+The training happens in six notebooks. Run them in order from Jupyter or VS Code with `requirements.txt` installed, or open each one in Colab with its button; each notebook's first cell sets up either environment.
 
 | Notebook | What it does | Writes |
 | --- | --- | --- |

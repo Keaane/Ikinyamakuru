@@ -72,7 +72,7 @@ The deployed system stays `char_balanced`. That decision was made after both tes
 
 ![Test F1 by section for the deployed system](../results/figures/per_class_f1.png)
 
-![Test confusion matrix, log counts](../results/figures/confusion.png)
+![Test confusion matrix, article counts on a log colour scale](../results/figures/confusion.png)
 
 Sport has the highest test F1 (0.94), followed by entertainment (0.81), relationship (0.80), religion (0.73), and technology (0.72).
 
