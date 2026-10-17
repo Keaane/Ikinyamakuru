@@ -1,0 +1,33 @@
+{
+  "system": "char_balanced",
+  "kind": "baseline",
+  "threshold": 0.5743,
+  "max_length": 128,
+  "labels": [
+    "politics",
+    "sport",
+    "economy",
+    "health",
+    "entertainment",
+    "history",
+    "technology",
+    "tourism",
+    "culture",
+    "fashion",
+    "religion",
+    "environment",
+    "education",
+    "relationship"
+  ],
+  "dev_choice": {
+    "metric": "macro_f1",
+    "value": 0.691839306198835,
+    "rule": "highest development macro-F1 among the seven systems"
+  },
+  "threshold_choice": {
+    "threshold": 0.5743,
+    "coverage": 0.8007863695937091,
+    "n_kept": 611,
+    "accuracy_kept": 0.8625204582651391
+  }
+}
