@@ -47,11 +47,11 @@ You need Python 3.12.
 
 ```bash
 python3.12 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-PYTHONPATH=src python app/app.py    # the desk, http://127.0.0.1:7860
+pip install -r app/requirements.txt    # the desk alone, no torch
+PYTHONPATH=src python app/app.py       # the desk, http://127.0.0.1:7860
 ```
 
-To train, run the notebooks in `notebooks/` in order. [docs/reproduce.md](docs/reproduce.md) lists what each one writes, the tests, and the repository layout.
+To train, install `requirements.txt` (it adds torch, Transformers, and the notebook tools) and run the notebooks in `notebooks/` in order. [docs/reproduce.md](docs/reproduce.md) lists what each one writes, the tests, and the repository layout.
 
 ## Documentation
 
