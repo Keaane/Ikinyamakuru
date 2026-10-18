@@ -23,7 +23,7 @@ This is a summative project for Machine Learning Techniques I at the African Lea
 - [Live app](https://huggingface.co/spaces/Gkea/Ikinyamakuru) on a Hugging Face Space. Paste an article or pick an example, and the model runs in your browser.
 - [Model](https://huggingface.co/Gkea/ikinyamakuru) on the Hugging Face Hub, with a model card and loading code.
 - [Colab notebook](https://colab.research.google.com/github/Keaane/Ikinyamakuru/blob/main/notebooks/colab_app.ipynb) that starts the Flask desk with a temporary public link.
-- Demo video: to be added.
+- Demo video: (https://www.awesomescreenshot.com/video/57558104?key=ece4998bad2bd8413c922ab69ba23a56)
 
 ## Results
 
